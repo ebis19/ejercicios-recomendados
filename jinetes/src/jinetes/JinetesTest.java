@@ -13,6 +13,7 @@ class JinetesTest {
 		Assert.assertEquals(1, jinetes(new int[] {18, 15}));
 		Assert.assertEquals(2, jinetes(new int[] {43, 23, 40, 13}));
 		Assert.assertEquals(3, jinetes(new int[] {33, 8, 16, 47, 30, 30, 46}));
+		Assert.assertEquals(3, jinetes(new int[] {51, 51, 51}));
 		Assert.assertEquals(4, jinetes(new int[] {6, 24, 6, 8, 28, 8, 23, 47, 17, 29, 37, 18, 40, 49}));
 
 	}
@@ -20,11 +21,12 @@ class JinetesTest {
 	public int jinetes(int[] is) {
 		int s=0,c=1;
 		for (int x:is) {
-			s+=x;
-			if(s>100) {
-				s=0;
+			if(s+x>100) {
 				c++;
+				s=x;
 			}
+			else
+				s+=x;
 			
 			
 		}
